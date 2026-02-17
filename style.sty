@@ -60,8 +60,10 @@
 
 %%% ——— Commandes utilitaires ———
 \newcommand{\CompanyLogo}[1]{%
-  \begin{center}\includegraphics[width=0.5\textwidth]{#1}\end{center}}
-
+  \begin{center}%
+    \includegraphics[width=0.5\textwidth,height=0.2\textheight,keepaspectratio]{#1}%
+  \end{center}%
+}
 %%% ——— Hyperref ———
 \hypersetup{
   colorlinks=true,
