@@ -1,4 +1,8 @@
-Ce projet vous permet d'utiliser la charte graphique de Centrale Méditerranée pour rédiger un rapport technique, notamment pour un rapport de stage ou un rapport de projet. Le projet est organisé de la manière suivante :
+Ce projet vous permet d'utiliser la charte graphique de Centrale Méditerranée pour rédiger un rapport technique, notamment pour un rapport de stage ou un rapport de projet.
+
+Attention, le projet utilise les couleurs et les logos de Centrale, pas la police, à vous de voir si vous souhaitez l'utiliser mais attention aux caractères spéciaux non disponibles qui peuvent créer de l'inconsistence.
+
+Le projet est organisé de la manière suivante :
 
 - `main.tex` : le fichier principal du projet, qui inclut les autres fichiers nécessaires à la compilation du rapport.
 - `style.sty` : le fichier de style qui définit la charte graphique de Centrale Méditerranée.
