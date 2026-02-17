@@ -1,0 +1,100 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{style}[SSE report style]
+
+%%% ——— Chargements essentiels ———
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[french, shorthands=off]{babel}
+\RequirePackage{lmodern}
+\RequirePackage{geometry}
+\RequirePackage{titling}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{csquotes}
+\RequirePackage{setspace}
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+\RequirePackage{microtype}
+\RequirePackage{xparse}
+\RequirePackage{enumitem}
+\RequirePackage[backend=biber,style=numeric]{biblatex}
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+
+%%% ——— Géométrie de page ———
+\geometry{
+  left=2.5cm, right=2.5cm,
+  top=2.5cm,  bottom=2.5cm
+}
+
+%%% ——— Interligne ———
+\onehalfspacing
+
+%%% ——— Espacement entre paragraphes ———
+\setlength{\parskip}{0.5\baselineskip plus 2pt minus 1pt}
+
+%%% ——— En-têtes/pieds ———
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{MICHEL Michel – Rapport de SSE à Labo}
+\fancyfoot[R]{\thepage}
+
+%%% ——— Palette de couleurs ———
+\definecolor{ecmblue}{RGB}{0,15,159}
+\definecolor{ecmgrey}{RGB}{76,95,128}
+
+%%% ——— Styles de section ———
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{ecmblue}}
+{\thesection}{1em}{}
+\titlespacing*{\section}
+{0pt}
+{1.5ex plus 1ex minus .2ex}
+{2.5ex plus .5ex minus .2ex}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{ecmgrey}}
+{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+
+%%% ——— Commandes utilitaires ———
+\newcommand{\CompanyLogo}[1]{%
+  \begin{center}\includegraphics[width=0.5\textwidth]{#1}\end{center}}
+
+%%% ——— Hyperref ———
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ecmblue,
+  urlcolor=ecmblue,
+  citecolor=ecmblue,
+  pdfauthor={Gaspard Lefort},
+  pdftitle={Rapport de SSE}
+}
+
+% Réglage global pour tous les itemize :
+\setlist[itemize]{
+  itemsep=0.25\baselineskip,       % espace entre les items
+  topsep=0.25\baselineskip,        % espace avant/après l'environ.
+  parsep=0.25\baselineskip,        % inter-paragraphe dans un item
+  partopsep=0pt,                   % espace supplémentaire si env. commence un paragraphe
+  after=\vspace{0.5\baselineskip}  % espace après l'environnement itemize
+}
+
+%%% --- Compétences centraliennes ---
+\graphicspath{{images/competences/}}
+
+\newcounter{competenceindex}
+\NewDocumentCommand{\competence}{ O{} m }{%
+  \IfNoValueTF{#1}
+  {\stepcounter{competenceindex}\def\logo{\arabic{competenceindex}}}
+  {\def\logo{#1}}
+  \subsection[#2]{
+    #2\hfill
+    \raisebox{-.4\height}{%
+      \includegraphics[height=1.5\baselineskip]{\logo}%
+    }%
+  }%
+}
+
+\endinput

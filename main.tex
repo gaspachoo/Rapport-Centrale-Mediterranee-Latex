@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{style}
+\addbibresource{biblio.bib}
+
+\begin{document}
+
+
+% Title page
+\input{sections/0-titlepage}
+
+% Acknowledgements
+\newpage
+\input{sections/1-remerciements}
+
+% Résumé and Abstract
+\newpage
+\input{sections/2-resume}
+\input{sections/3-abstract}
+
+% Mots-clés and Glossaire
+\newpage
+\input{sections/4-keywords}
+\input{sections/5-glossaire}
+
+% Table des matières
+\newpage
+\tableofcontents
+
+% Body
+\input{sections/6-body}
+
+% Bibliographie
+\newpage
+\nocite{*} % a supprimer dès qu'un référence est utilisée
+\printbibliography
+
+% Annexes
+\input{sections/7-annexes}
+
+\end{document}
